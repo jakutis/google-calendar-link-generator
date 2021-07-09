@@ -74,9 +74,10 @@
                     </div>
                 </div>
                 <div class="form-group">
+                  <label for="isrecur">is recurring?<input type="checkbox" ng-model="isrecur" ></label>
                     <input ng-model="recur" type="hidden" id="eventRecur" name="recur" class="form-control" />
                 </div>
-<div>
+                <div ng-style="{display:isrecur?'':'none'}">
   <div id="page">
     <div id="input">
     <section id="output">

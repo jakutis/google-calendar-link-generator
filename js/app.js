@@ -22,7 +22,7 @@
       $scope.getUrl = function(){
             /* TODO Add form validation */
             $scope.copied = false;
-            $scope.url    = getUrl(document.getElementById('eventRecur').value, $scope.title, $scope.desc, $scope.locat, $scope.start, $scope.end);
+            $scope.url    = getUrl($scope.isrecur? document.getElementById('eventRecur').value:undefined, $scope.title, $scope.desc, $scope.locat, $scope.start, $scope.end);
         };
     });
 
