@@ -4,10 +4,12 @@
     var app = angular.module('calendar', ['ngAnimate']);
 
     app.controller('EventController', function($scope){
-        var getUrl = function(title, desc, locat, start, end){
+      var getUrl = function(recur, title, desc, locat, start, end){
+        console.log(recur)
             var uri = new URI('https://www.google.com/calendar/render');
             uri.search({
-                action:  'TEMPLATE',
+              action:  'TEMPLATE',
+              recur,
                 text:    title,
                 details: desc,
                 location: locat,
@@ -17,10 +19,10 @@
             return uri.toString();
         };
 
-        $scope.getUrl = function(){
+      $scope.getUrl = function(){
             /* TODO Add form validation */
             $scope.copied = false;
-            $scope.url    = getUrl($scope.title, $scope.desc, $scope.locat, $scope.start, $scope.end);
+            $scope.url    = getUrl(document.getElementById('eventRecur').value, $scope.title, $scope.desc, $scope.locat, $scope.start, $scope.end);
         };
     });
 
